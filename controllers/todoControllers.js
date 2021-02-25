@@ -1,4 +1,5 @@
 
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 
@@ -30,3 +31,4 @@ var Todo = mongoose.model('Todo', todoSchema);
 // })
 
 // var data = [{ item: 'get milk' }, { item: 'get strwberry' }, { item: 'go to library' }, { item: 'bring car' }];
+let urlEncodedParser = bodyParser.urlencoded({ extended: false })
