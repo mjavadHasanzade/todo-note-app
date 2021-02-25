@@ -99,17 +99,46 @@ h1 {
     text-align: center;
     transition: display ease .2s;
     display: none;
+    z-index: 1050;
 }
 
 .customModal .customModal-body {
-    background-color: #fff;
+    background-color: #0d1521;
     width: 50%;
     text-align: center;
     margin: 0 auto;
     border-radius: 10px;
     padding: 2rem;
+    position: relative;
+}
+
+#editTodo{
+    display: flex;
 }
 
 .customModal.activer .customModal-body {
     /* opacity: 1; */
+}
+
+.blackLayout {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #000000d1;
+    z-index: 999;
+    display: none;
+}
+
+.closeBtn {
+    background: url(./close.png) no-repeat center;
+    background-size: cover;
+    width: 6px;
+    height: 20px;
+    position: absolute;
+    right: 3%;
+    top: 3%;
 }

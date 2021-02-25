@@ -56,10 +56,22 @@ $(document).ready(function () {
     $('#editTodo input').attr('selectedTodo', $(this).parent().parent().children('span').text().replace(/\s/g, "-"))
 
     $('.customModal').toggle('activer');
+    $('.blackLayout').css({
+      display: 'block'
+    });
+
+
     // $('.customModal').css({ display: 'block'});
+  });
 
-
-
+  $('.closeBtn').click(function (e) { 
+    
+    $('.customModal').toggle('activer');
+    $('.blackLayout').css({
+      display: 'none'
+    });
+    
+    
   });
 
 });
