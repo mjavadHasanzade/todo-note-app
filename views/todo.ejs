@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"
+        integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+        <script src="/assets/todo-list.js"></script>
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+
+<body>
+    <h1>My Todo List</h1>
+    <div id="todo-table">
+        <form action="">
+            <input type="text" name="" id="" required>
+            <button type="submit">add Item</button>
+        </form>
+        <ul>
+
+            <% todos.map(item=>{ %>
+                <li><span><%=item.item%></span><div><button class="edit-button customModalBtn">Edit</button><button class="del-button">Delete</button></div></li>
+                <% }) %>
+        </ul>
+    </div>
+
+
+    <div class="customModal">
+        <div class="customModal-body">
+            <h2>edit...</h2>
+            <form action="" id="editTodo">
+                <input type="text" name="" id="">
+                <button type="submit">Save Item</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
