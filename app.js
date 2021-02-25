@@ -9,6 +9,9 @@ const port = 3000;
 // template engine
 app.set('view engine', 'ejs');
 
+// statics
+app.use(express.static('./public'));
+
 //fire controllers
 todoController(app)
 
