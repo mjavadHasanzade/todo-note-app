@@ -31,4 +31,37 @@ var Todo = mongoose.model('Todo', todoSchema);
 // })
 
 // var data = [{ item: 'get milk' }, { item: 'get strwberry' }, { item: 'go to library' }, { item: 'bring car' }];
-let urlEncodedParser = bodyParser.urlencoded({ extended: false })
+let urlEncodedParser = bodyParser.urlencoded({ extended: false });
+
+
+module.exports = (app) => {
+    app.get('/todo', (req, res) => {
+        Todo.find({}, (err, data) => {
+            if (err) throw err
+            res.render('todo', { todos: data })
+        })
+    })
+    app.post('/todo', urlEncodedParser, (req, res) => {
+        var newTodo = Todo(req.body).save((err, data) => {
+            if (err) throw err
+            res.json(data);
+        })
+    })
+    app.delete('/todo/:item', (req, res) => {
+        Todo.find({ item: req.params.item.replace(/\-/g, " ") }).remove((err, data) => {
+            if (err) throw err
+            res.json(data);
+        });
+    })
+    app.put('/todo/:item', urlEncodedParser, async (req, res) => {
+
+        Todo.find({ item: req.params.item.replace(/\-/g, " ") }).remove((err, data) => {
+            if (err) throw err
+        });
+        var newTodo = Todo(req.body).save((err, data) => {
+            if (err) throw err
+            res.json(data);
+        })
+
+    })
+}
